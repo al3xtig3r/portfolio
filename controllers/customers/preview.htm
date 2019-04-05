@@ -1,0 +1,29 @@
+<?php Block::put('breadcrumb') ?>
+    <ul>
+        <li>
+            <a href="<?= Backend::url('al3xtig3r/portfolio/customers') ?>">
+                <?= e(trans('al3xtig3r.portfolio::lang.customers.multiple')) ?>
+            </a>
+        </li>
+        <li><?= e($this->pageTitle) ?></li>
+    </ul>
+<?php Block::endPut() ?>
+
+<?php if (!$this->fatalError): ?>
+
+    <div class="form-preview">
+        <?= $this->formRenderPreview() ?>
+
+        <?= $this->relationRender('works') ?>
+    </div>
+
+<?php else: ?>
+
+    <p class="flash-message static error"><?= e($this->fatalError) ?></p>
+    <p>
+        <a href="<?= Backend::url('al3xtig3r/portfolio/customers') ?>" class="btn btn-default">
+            <?= e(trans('al3xtig3r.portfolio::lang.customers.preview.return')) ?>
+        </a>
+    </p>
+
+<?php endif ?>

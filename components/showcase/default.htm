@@ -1,0 +1,19 @@
+<div class="center-align">
+    <form id="refresh-works" data-request="onRefresh" class="left-align" style="display: inline-block;">
+        <label class="white-text">{{ 'al3xtig3r.portfolio::lang.components.showcase.show'|trans }}</label>
+        <select name="works-number" data-request="onRefresh" data-request-flash>
+            {% for i in 4..__SELF__.works()|length %}
+                <option>{{ i }}</option>
+            {% endfor %}
+        </select>
+    </form>
+</div>
+<div id="works-container"></div>
+
+{% put scripts %}
+    <script>
+        $(document).ready(function(){
+            $('#refresh-works').submit();
+        });
+    </script>
+{% endput %}

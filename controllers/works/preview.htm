@@ -1,0 +1,27 @@
+<?php Block::put('breadcrumb') ?>
+    <ul>
+        <li>
+            <a href="<?= Backend::url('al3xtig3r/portfolio/works') ?>">
+                <?= e(trans('al3xtig3r.portfolio::lang.works.multiple')) ?>
+            </a>
+        </li>
+        <li><?= e($this->pageTitle) ?></li>
+    </ul>
+<?php Block::endPut() ?>
+
+<?php if (!$this->fatalError): ?>
+
+    <div class="form-preview">
+        <?= $this->formRenderPreview() ?>
+    </div>
+
+<?php else: ?>
+
+    <p class="flash-message static error"><?= e($this->fatalError) ?></p>
+    <p>
+        <a href="<?= Backend::url('al3xtig3r/portfolio/works') ?>" class="btn btn-default">
+            <?= e(trans('al3xtig3r.portfolio::lang.works.preview.return')) ?>
+        </a>
+    </p>
+
+<?php endif ?>

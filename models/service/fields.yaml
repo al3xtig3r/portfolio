@@ -1,0 +1,14 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    name:
+        label: al3xtig3r.portfolio::lang.services.fields.name
+        type: text
+        span: left
+    icon:
+        label: al3xtig3r.portfolio::lang.services.fields.icon
+        type: text
+        span: right
+        comment: al3xtig3r.portfolio::lang.services.fields.icon_comment

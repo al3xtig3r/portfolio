@@ -1,0 +1,11 @@
+1.0.1: First version of Portfolio
+1.1.0:
+- Creating services, customers and works tables
+- create_services_table.php
+- create_customers_table.php
+- create_works_table.php
+1.1.1:
+- Seeding services, customers and works tables
+- seed_services_table.php
+- seed_customers_table.php
+- seed_works_table.php

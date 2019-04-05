@@ -1,0 +1,96 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    name:
+        label: al3xtig3r.portfolio::lang.works.fields.name
+        type: text
+    customer:
+        label: al3xtig3r.portfolio::lang.works.fields.customer
+        type: relation
+        nameFrom: name
+        span: left
+        emptyOption: al3xtig3r.portfolio::lang.works.fields.none_option
+    service:
+        label: al3xtig3r.portfolio::lang.works.fields.service
+        type: relation
+        nameFrom: name
+        span: right
+        emptyOption: al3xtig3r.portfolio::lang.works.fields.none_option
+    gross_price:
+        label: al3xtig3r.portfolio::lang.works.fields.gross_price
+        type: number
+        step: 0.01
+        min: 0.00
+        default: 0.00
+        span: left
+    link:
+        label: al3xtig3r.portfolio::lang.works.fields.link
+        type: text
+        span: right
+    description:
+        label: al3xtig3r.portfolio::lang.works.fields.description
+        type: textarea
+    likes:
+        label: al3xtig3r.portfolio::lang.works.fields.likes
+        type: number
+        span: left
+        min: 0
+        default: 0
+    vote:
+        label: al3xtig3r.portfolio::lang.works.fields.vote
+        type: number
+        span: right
+        min: 0
+        max: 5
+        default: 0
+    comment:
+        label: al3xtig3r.portfolio::lang.works.fields.comment
+        type: textarea
+    release_date:
+        label: al3xtig3r.portfolio::lang.works.fields.release_date
+        type: datepicker
+        mode: date
+        span: left
+    expiration_date:
+        label: al3xtig3r.portfolio::lang.works.fields.expiration_date
+        type: datepicker
+        span: right
+        mode: date
+    public:
+        label: al3xtig3r.portfolio::lang.works.fields.public
+        type: switch
+    reminder:
+        label: al3xtig3r.portfolio::lang.works.fields.reminder
+        type: switch
+    main_image:
+        label: al3xtig3r.portfolio::lang.works.fields.main_image
+        type: fileupload
+        mode: image
+        imageHeight: 250
+        imageWidth: 250
+        thumbOptions:
+            mode: crop
+            offset:
+                - 0
+                - 0
+            quality: 100
+            sharpen: 0
+            interlace: false
+            extension: auto
+    gallery:
+        label: al3xtig3r.portfolio::lang.works.fields.gallery
+        type: fileupload
+        mode: image
+        imageHeight: 150
+        imageWidth: 150
+        thumbOptions:
+            mode: crop
+            offset:
+                - 0
+                - 0
+            quality: 100
+            sharpen: 0
+            interlace: false
+            extension: auto

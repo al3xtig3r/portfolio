@@ -1,0 +1,12 @@
+# ===================================
+#  Relation Behavior Config
+# ===================================
+
+works:
+    label: al3xtig3r.portfolio::lang.works.single
+    manage:
+        form: $/al3xtig3r/portfolio/models/work/fields.yaml
+        list: $/al3xtig3r/portfolio/models/work/columns.yaml
+    view:
+        list: $/al3xtig3r/portfolio/models/work/columns.yaml
+        toolbarButtons: create|delete

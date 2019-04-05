@@ -1,0 +1,34 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    name:
+        label: al3xtig3r.portfolio::lang.customers.fields.name
+        type: text
+    email:
+        label: al3xtig3r.portfolio::lang.customers.fields.email
+        type: text
+        span: left
+    phone:
+        label: al3xtig3r.portfolio::lang.customers.fields.phone
+        type: text
+        span: right
+    public:
+        label: al3xtig3r.portfolio::lang.customers.fields.public
+        type: switch
+    logo:
+        label: al3xtig3r.portfolio::lang.customers.fields.logo
+        type: fileupload
+        mode: image
+        imageHeight: 200
+        imageWidth: 200
+        thumbOptions:
+            mode: crop
+            offset:
+                - 0
+                - 0
+            quality: 100
+            sharpen: 0
+            interlace: false
+            extension: auto

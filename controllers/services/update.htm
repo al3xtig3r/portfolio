@@ -1,0 +1,68 @@
+<?php Block::put('breadcrumb') ?>
+    <ul>
+        <li>
+            <a href="<?= Backend::url('al3xtig3r/portfolio/services') ?>">
+                <?= e(trans('al3xtig3r.portfolio::lang.services.multiple')) ?>
+            </a>
+        </li>
+        <li><?= e($this->pageTitle) ?></li>
+    </ul>
+<?php Block::endPut() ?>
+
+<?php if (!$this->fatalError): ?>
+
+    <?= Form::open(['class' => 'layout']) ?>
+
+        <div class="layout-row">
+            <?= $this->formRender() ?>
+        </div>
+
+        <div class="layout-row">
+            <?= $this->relationRender('works') ?>
+        </div>
+
+        <div class="form-buttons">
+            <div class="loading-indicator-container">
+                <button
+                    type="submit"
+                    data-request="onSave"
+                    data-request-data="redirect:0"
+                    data-hotkey="ctrl+s, cmd+s"
+                    data-load-indicator="<?= e(trans('al3xtig3r.portfolio::lang.services.update.saving')) ?>"
+                    class="btn btn-primary">
+                    <?= trans('al3xtig3r.portfolio::lang.services.update.save') ?>
+                </button>
+                <button
+                    type="button"
+                    data-request="onSave"
+                    data-request-data="close:1"
+                    data-hotkey="ctrl+enter, cmd+enter"
+                    data-load-indicator="<?= e(trans('al3xtig3r.portfolio::lang.services.update.saving')) ?>"
+                    class="btn btn-default">
+                    <?= trans('al3xtig3r.portfolio::lang.services.update.save_close') ?>
+                </button>
+                <button
+                    type="button"
+                    class="oc-icon-trash-o btn-icon danger pull-right"
+                    data-request="onDelete"
+                    data-load-indicator="<?= trans('al3xtig3r.portfolio::lang.services.update.deleting') ?>"
+                    data-request-confirm="<?= trans('al3xtig3r.portfolio::lang.services.update.confirm_deletion') ?>">
+                </button>
+                <span class="btn-text">
+                    <?= trans('al3xtig3r.portfolio::lang.services.update.cancel', ['url' => Backend::url('al3xtig3r/portfolio/services')]) ?>
+                </span>
+            </div>
+        </div>
+
+    <?= Form::close() ?>
+
+<?php else: ?>
+
+    <p class="flash-message static error"><?= e($this->fatalError) ?></p>
+    <p>
+        <a href="<?= Backend::url('al3xtig3r/portfolio/services') ?>" class="btn btn-default">
+            <?= e(trans('al3xtig3r.portfolio::lang.services.update.return')) ?>
+        </a>
+    </p>
+
+<?php endif ?>

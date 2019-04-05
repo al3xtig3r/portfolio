@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: al3xtig3r.portfolio::lang.services.single
+
+# Model Form Field configuration
+form: $/al3xtig3r/portfolio/models/service/fields.yaml
+
+# Model Class name
+modelClass: Al3xTig3r\Portfolio\Models\Service
+
+# Default redirect location
+defaultRedirect: al3xtig3r/portfolio/services
+
+# Create page
+create:
+    title: al3xtig3r.portfolio::lang.services.create.title
+    redirect: al3xtig3r/portfolio/services/update/:id
+    redirectClose: al3xtig3r/portfolio/services
+
+# Update page
+update:
+    title: al3xtig3r.portfolio::lang.services.update.title
+    redirect: al3xtig3r/portfolio/services
+    redirectClose: al3xtig3r/portfolio/services
+
+# Preview page
+preview:
+    title: al3xtig3r.portfolio::lang.services.preview.title

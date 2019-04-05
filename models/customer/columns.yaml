@@ -1,0 +1,25 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    name:
+        label: al3xtig3r.portfolio::lang.customers.columns.name
+        searchable: true
+    email:
+        label: al3xtig3r.portfolio::lang.customers.columns.email
+        searchable: true
+    phone:
+        label: al3xtig3r.portfolio::lang.customers.columns.phone
+        searchable: true
+        sortable: false
+    works_count:
+        label: al3xtig3r.portfolio::lang.customers.columns.works
+        relation: works
+        useRelationCount: true
+        align: center
+    public:
+        label: al3xtig3r.portfolio::lang.customers.columns.public
+        type: switch
+        align: center
+        sortable: false

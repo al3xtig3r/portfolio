@@ -1,0 +1,21 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    icon:
+        label: ''
+        type: partial
+        path: ~/plugins/al3xtig3r/portfolio/models/service/_icon.htm
+        sortable: false
+        width: 5%
+        align: center
+    name:
+        label: al3xtig3r.portfolio::lang.services.columns.name
+        searchable: true
+        width: 55%
+    works_count:
+        label: al3xtig3r.portfolio::lang.services.columns.works
+        relation: works
+        useRelationCount: true
+        width: 40%

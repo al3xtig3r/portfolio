@@ -1,0 +1,58 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    name:
+        label: al3xtig3r.portfolio::lang.works.columns.name
+        searchable: true
+    link:
+        label: al3xtig3r.portfolio::lang.works.columns.link
+        type: partial
+        path: ~/plugins/al3xtig3r/portfolio/models/work/_link_button.htm
+        sortable: false
+    customer_name:
+        label: al3xtig3r.portfolio::lang.works.columns.customer_name
+        searchable: true
+        relation: customer
+        select: name
+    service_name:
+        label: al3xtig3r.portfolio::lang.works.columns.service_name
+        searchable: true
+        relation: service
+        select: name
+    description:
+        label: al3xtig3r.portfolio::lang.works.columns.description
+        sortable: false
+    gross_price:
+        label: al3xtig3r.portfolio::lang.works.columns.gross_price
+        align: center
+    likes:
+        label: al3xtig3r.portfolio::lang.works.columns.likes
+        type: number
+        align: center
+    vote:
+        label: al3xtig3r.portfolio::lang.works.columns.vote
+        type: number
+        align: center
+    comment:
+        label: al3xtig3r.portfolio::lang.works.columns.comment
+        sortable: false
+    public:
+        label: al3xtig3r.portfolio::lang.works.columns.public
+        type: switch
+        align: center
+        sortable: false
+    release_date:
+        label: al3xtig3r.portfolio::lang.works.columns.release_date
+        type: date
+        align: center
+    expiration_date:
+        label: al3xtig3r.portfolio::lang.works.columns.expiration_date
+        type: date
+        align: center
+    reminder:
+        label: al3xtig3r.portfolio::lang.works.columns.reminder
+        type: switch
+        align: center
+        sortable: false

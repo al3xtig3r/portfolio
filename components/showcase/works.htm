@@ -1,0 +1,175 @@
+<div class="center-align portfolio-carousel owl-carousel">
+    {% for work in works %}
+    <div class="work-container card black-text">
+        <div class="card-image logo">
+            <img src="{{ work.main_image.getThumb(1000, 600, {'mode': 'crop'}) }}" alt="{{ work.name }}" title="{{ work.name }}">
+            <div class="card-title service">
+                {{ work.service.name }}
+            </div>
+        </div>
+        <div class="card-content info">
+            <span class="card-title name red-text">
+                <strong>
+                    {{ work.name }}
+                </strong>
+            </span>
+            <p class="description">
+                {{ work.description }}
+            </p>
+            <p class="link">
+                {{ work.link }}
+            </p>
+            <p class="vote">
+                {{ work.vote }}
+            </p>
+            <p class="comment">
+                {{ work.comment }}
+            </p>
+            <div>
+                <form class="work-{{ work.id }}-form" data-request="onLike" data-request-flash>
+                    <input name="work-id" type="hidden" value="{{ work.id }}">
+                    <button class="likes {% if work.id in this.page.works_liked %} liked {% endif %} btn-flat tooltipped" data-position="top" data-delay="10" data-tooltip="{{ 'al3xtig3r.portfolio::lang.components.showcase.thanks_tooltip'|trans }}">
+                        <div class="likes-count">
+                            {{ work.likes }}
+                        </div>
+                        <i class="{% if work.id in this.page.works_liked %} fas {% else %} far {% endif %} fa-heart fa-lg"></i>
+                    </span>
+                </form>
+            </div>
+        </div>
+        <div class="card-action">
+            <a class="btn red work-modal-trigger lt-modal-trigger" href="#work-modal">
+                <i class="fas fa-search"></i> {{ 'al3xtig3r.portfolio::lang.components.showcase.view'|trans }}
+            </a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<div id="work-modal" class="modal">
+    <div class="modal-content black-text">
+        <div class="card">
+            <div class="card-image logo">
+                <img>
+                <span class="card-title name">
+                    <h3></h3>
+                </span>
+            </div>
+            <div class="card-content center-align row">
+                <div class="col s12 valign-wrapper">
+                    <div class="col s6">
+                        <h4 class="service"></h3>
+                    </div>
+                    <div class="col s6">
+                        <form data-request="onLike" data-request-flash>
+                            <input id="modal-work-id" name="work-id" type="hidden">
+                            <button class="likes modal-likes btn-flat tooltipped" data-position="top" data-delay="10" data-tooltip="{{ 'al3xtig3r.portfolio::lang.components.showcase.thanks_tooltip'|trans }}">
+                                <div class="likes-count">
+                                    {{ work.likes }}
+                                </div>
+                                <i class="fa-heart fa-lg animated pulse infinite"></i>
+                            </span>
+                        </form>
+                    </div>
+                </div>
+                <div class="col s12">
+                    <p class="description flow-text left-align">
+                    </p>
+                    <a class="link btn btn-large" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> {{ 'al3xtig3r.portfolio::lang.components.showcase.go'|trans }}
+                    </a>
+                </div>
+                <div class="col s12 review left-align">
+                    <h5>
+                        {{ 'al3xtig3r.portfolio::lang.components.showcase.customer_review'|trans }}
+                    </h5>
+                    <blockquote class="flow-text">
+                        <i class="fas fa-quote-left"></i> <span class="comment"></span>
+                    </blockquote>
+                    <div class="vote">
+                        <strong>{{ 'al3xtig3r.portfolio::lang.components.showcase.customer_vote'|trans }}</strong><br>
+                        <span class="stars">
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $('.portfolio-carousel.owl-carousel').owlCarousel({
+        loop: true,
+        margin: 10,
+        responsiveClass: true,
+        autoplay: true,
+        responsive:{
+            0:{
+                items: 1,
+                autoplayTimeout: 1500
+            },
+            500:{
+                items: 2,
+                autoplayTimeout: 2500
+            },
+            900:{
+                items: 3,
+                autoplayTimeout: 2500
+            },
+            1200:{
+                items: 4,
+                autoplayTimeout: 2500
+            }
+        }
+    });
+
+    $(document).ready(function(){
+        $('.work-modal-trigger').leanModal();
+        $('.tooltipped').tooltip();
+
+        $('.work-modal-trigger').on('click', function(e){
+            var $workContainer = $(e.target).closest('.work-container'),
+                $logoSrc = $workContainer.find('.logo img').first().attr('src'),
+                $name = $workContainer.find('.info .name').first().text(),
+                $description = $workContainer.find('.info .description').first().text(),
+                $link = $workContainer.find('.info .link').first().text(),
+                $service = $workContainer.find('.logo .service').first().text(),
+                $likesCount = $workContainer.find('.info .likes-count').first().text(),
+                $liked = $workContainer.find('.info .likes').hasClass('liked'),
+                $workId = $workContainer.find('input[name="work-id"]').val(),
+                $vote = $workContainer.find('.info .vote').first().text(),
+                $comment = $workContainer.find('.info .comment').first().text();
+
+            $('#work-modal .logo img').attr('src', $logoSrc);
+            $('#work-modal .name h3').html($name);
+            $('#work-modal .description').html($description);
+            $('#work-modal .link').attr('href', $link);
+            $('#work-modal .service').html($service);
+            $('#work-modal .likes-count').html($likesCount);
+            if($liked){
+                $('#work-modal .likes').addClass('liked');
+                $('#work-modal .likes i').removeClass('far');
+                $('#work-modal .likes i').addClass('fas');
+            }
+            else{
+                $('#work-modal .likes').removeClass('liked');
+                $('#work-modal .likes i').removeClass('fas');
+                $('#work-modal .likes i').addClass('far');
+            }
+            $('#work-modal #modal-work-id').val($workId);
+            if($vote > 0 && $comment.length > 0){
+                $('#work-modal .review').addClass('show');
+                $('#work-modal .comment').html($comment);
+                $('#work-modal .vote .stars').html('');
+                for(let i = 0; i < $vote; i++){
+                    $('#work-modal .vote .stars').append('<i class="fas fa-star fa-lg amber-text"></i>');
+                }
+            }
+            else{
+                $('#work-modal .review').removeClass('show');
+                $('#work-modal .comment').html('');
+                $('#work-modal .vote .stars').html('');
+            }
+        });
+    });
+</script>

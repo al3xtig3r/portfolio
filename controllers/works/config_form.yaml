@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: al3xtig3r.portfolio::lang.works.single
+
+# Model Form Field configuration
+form: $/al3xtig3r/portfolio/models/work/fields.yaml
+
+# Model Class name
+modelClass: Al3xTig3r\Portfolio\Models\Work
+
+# Default redirect location
+defaultRedirect: al3xtig3r/portfolio/works
+
+# Create page
+create:
+    title: al3xtig3r.portfolio::lang.works.create.title
+    redirect: al3xtig3r/portfolio/works/update/:id
+    redirectClose: al3xtig3r/portfolio/works
+
+# Update page
+update:
+    title: al3xtig3r.portfolio::lang.works.update.title
+    redirect: al3xtig3r/portfolio/works
+    redirectClose: al3xtig3r/portfolio/works
+
+# Preview page
+preview:
+    title: al3xtig3r.portfolio::lang.works.preview.title
